@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  pool: 5
+
+development:
+  <<: *default
+  database: log_parser_development
+
+test:
+  <<: *default
+  database: log_parser_test
+
+production:
+  <<: *default
+  database: log_parser_production

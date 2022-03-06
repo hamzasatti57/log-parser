@@ -1,0 +1,31 @@
+<div style="padding: 30px;">
+  <div class="row">
+    <div class="col-md-12">
+      <button type="button" onclick="location.href='<%= root_path(unique: true) %>'" class="btn btn-primary" style="float: right;">
+        With Unique Views
+      </button>
+      <button type="button" onclick="location.href='<%= root_path(most: true) %>'" class="btn btn-primary" style="float: right; margin-right: 10px">
+        With Most Views
+      </button>
+      <button type="button" onclick="location.href='<%= root_path %>'" class="btn btn-primary" style="float: right; margin-right: 10px">Refresh</button>
+    </div>
+  </div>
+  <table class="table table-striped table-hover">
+    <thead>
+    <tr>
+      <th scope="col">URL</th>
+      <th scope="col">IP</th>
+      <th scope="col">VIEWS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @results&.each do |k, v| %>
+      <tr>
+        <td><%= params[:unique] ? "#{k[0]}" : k %></td>
+        <td><%= params[:unique] ? k[1] : "-" %></td>
+        <td><%= v %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
